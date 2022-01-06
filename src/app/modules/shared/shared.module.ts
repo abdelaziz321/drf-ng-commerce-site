@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { AppFooterComponent } from './components/app-footer/app-footer.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
@@ -12,7 +12,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
 @NgModule({
   declarations: [
     NavbarComponent,
-    AppFooterComponent
+    FooterComponent
   ],
   imports: [
     CommonModule,
@@ -22,7 +22,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
   ],
   exports: [
     NavbarComponent,
-    AppFooterComponent
+    FooterComponent
   ]
 })
 export class SharedModule { }
