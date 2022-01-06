@@ -103,65 +103,6 @@
             ],
             "scripts": []
           }
-        },
-        "server": {
-          "builder": "@angular-devkit/build-angular:server",
-          "options": {
-            "outputPath": "dist/drf-ng-commerce-site/server",
-            "main": "server.ts",
-            "tsConfig": "tsconfig.server.json",
-            "inlineStyleLanguage": "scss"
-          },
-          "configurations": {
-            "production": {
-              "outputHashing": "media",
-              "fileReplacements": [
-                {
-                  "replace": "src/environments/environment.ts",
-                  "with": "src/environments/environment.prod.ts"
-                }
-              ]
-            },
-            "development": {
-              "optimization": false,
-              "sourceMap": true,
-              "extractLicenses": false
-            }
-          },
-          "defaultConfiguration": "production"
-        },
-        "serve-ssr": {
-          "builder": "@nguniversal/builders:ssr-dev-server",
-          "configurations": {
-            "development": {
-              "browserTarget": "drf-ng-commerce-site:build:development",
-              "serverTarget": "drf-ng-commerce-site:server:development"
-            },
-            "production": {
-              "browserTarget": "drf-ng-commerce-site:build:production",
-              "serverTarget": "drf-ng-commerce-site:server:production"
-            }
-          },
-          "defaultConfiguration": "development"
-        },
-        "prerender": {
-          "builder": "@nguniversal/builders:prerender",
-          "options": {
-            "routes": [
-              "/"
-            ]
-          },
-          "configurations": {
-            "production": {
-              "browserTarget": "drf-ng-commerce-site:build:production",
-              "serverTarget": "drf-ng-commerce-site:server:production"
-            },
-            "development": {
-              "browserTarget": "drf-ng-commerce-site:build:development",
-              "serverTarget": "drf-ng-commerce-site:server:development"
-            }
-          },
-          "defaultConfiguration": "production"
         }
       }
     }

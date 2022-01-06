@@ -11,12 +11,14 @@ import { GlobalModule } from './modules/global/global.module';
     AppComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'serverApp' }),
-    AppRoutingModule,
-    SharedModule,
-    GlobalModule
+    BrowserModule,
+
+    AppRoutingModule, // router
+    SharedModule,     // navbar / footer / ...shared components
+    GlobalModule      // 404 / 403 / contact-us / ...static pages
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: []
 })
 export class AppModule { }
