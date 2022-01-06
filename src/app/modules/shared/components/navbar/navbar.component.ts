@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  isDropdownMenuVisible : boolean = false;
+  isMobileMenuVisible : boolean = false;
 
-  constructor() { }
+  // TODO: update this after implementing the auth part
+  isAuthenticated : boolean = true;
 
-  ngOnInit(): void {
-  }
-
+  constructor() {}
+  ngOnInit(): void {}
 }

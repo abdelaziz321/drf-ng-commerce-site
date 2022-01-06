@@ -12,7 +12,12 @@ module.exports = {
     },
     darkMode: 'class', // or 'media' or 'class'
     theme: {
-      extend: {},
+      extend: {
+        colors: {
+          'primary': '#333333',
+          'primary-light': '#444444',
+        }
+      },
     },
     variants: {
       extend: {},

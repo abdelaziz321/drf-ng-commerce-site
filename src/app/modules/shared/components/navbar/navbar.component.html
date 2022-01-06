@@ -1,1 +1,131 @@
-<p>navbar works!</p>
+<div class="min-h-full">
+  <nav class="bg-white px-4 sm:px-6 lg:px-8 border-b border-gray-200">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center justify-between h-24">
+
+        <!-- LOGO + DESKTOP: NAV ITEMS -->
+        <div class="flex items-center">
+          <div class="flex-shrink-0">
+            <img class="h-16" src="assets/logo.png" alt="logo">
+          </div>
+
+          <div class="hidden md:block">
+            <div class="ml-6 flex items-baseline space-x-4">
+              <a href="#" class="pb-1 border-primary hover:border-b border-b">Products</a>
+              <a *ngIf="isAuthenticated" href="#" class="pb-1 border-primary hover:border-b">Orders</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- DESKTOP: CART / NOTIFICATION ICONS + PROFILE DROPDOWN MENU -->
+        <div class="hidden md:block">
+          <div *ngIf="isAuthenticated" class="ml-4 flex items-center md:ml-6">
+            <button type="button" class="group relative inline-block mt-0 md:mt-1 mr-2 md:mr-8">
+              <svg-icon svgClass="h-7 fill-[#888888] group-hover:fill-[#555555]" src="assets/icons/cart.svg"></svg-icon>
+              <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">3</span>
+            </button>
+
+            <button type="button" class="group relative inline-block mt-0 md:mt-1 mr-2 md:mr-7">
+              <svg-icon svgClass="h-7 fill-[#888888] group-hover:fill-[#555555]" src="assets/icons/notification.svg"></svg-icon>
+              <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">4</span>
+            </button>
+
+            <!-- PROFILE DROPDOWN -->
+            <div class="relative">
+              <!-- BUTTON -->
+              <div>
+                <button
+                  type="button"
+                  (click)="isDropdownMenuVisible = !isDropdownMenuVisible"
+                  (clickOutside)="isDropdownMenuVisible = false"
+                  class="max-w-xs rounded-full flex items-center"
+                >
+                  <img class="h-10" src="assets/icons/user.png" alt="">
+                </button>
+              </div>
+
+              <!-- DROPDOWN MENU -->
+              <div *ngIf="isDropdownMenuVisible" class="origin-top-right absolute right-0 mt-2 w-48 shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5">
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Update Profile</a>
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Update Password</a>
+                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Logout</a>
+              </div>
+            </div>
+          </div>
+
+          <div *ngIf="!isAuthenticated">
+            <button class="border border-primary hover:bg-gray-50 text-primary py-1 px-4 mr-2">
+              Login
+            </button>
+
+            <button class="border border-primary bg-primary-light hover:bg-primary text-white py-1 px-4">
+              Register
+            </button>
+          </div>
+        </div>
+
+        <!-- MOBILE: TOGGLE MENU BUTTON -->
+        <div class="flex md:hidden">
+          <button
+            (click)="$event.stopPropagation(); isMobileMenuVisible = !isMobileMenuVisible"
+            (clickOutside)="isMobileMenuVisible = false"
+            type="button"
+            class="border border-primary inline-flex items-center justify-center p-2"
+          >
+            <svg-icon
+              *ngIf="!isMobileMenuVisible"
+              svgClass="block h-6 w-6 fill-[#888888]"
+              src="assets/icons/burger.svg"
+            ></svg-icon>
+            <svg-icon
+              *ngIf="isMobileMenuVisible"
+              svgClass="h-6 w-6 fill-[#888888]"
+              src="assets/icons/close.svg"
+            ></svg-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- MOBILE: NAV ITEMS + PROFILE MENU -->
+    <div *ngIf="isMobileMenuVisible" class="md:hidden">
+      <div class="pt-2 pb-3 space-y-1">
+        <a *ngIf="isAuthenticated" href="#" class="block px-3 py-2 hover:bg-gray-50">
+          Cart
+          <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full ml-1">3</span>
+        </a>
+        <a *ngIf="isAuthenticated" href="#" class="block px-3 py-2 hover:bg-gray-50 bg-gray-50">
+          Notifications
+          <span class="inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-red-600 rounded-full ml-1">4</span>
+        </a>
+        <a href="#" class="block px-3 py-2 hover:bg-gray-50">Products</a>
+        <a *ngIf="isAuthenticated" href="#" class="block px-3 py-2 hover:bg-gray-50">Orders</a>
+      </div>
+
+      <div class="pt-4 pb-3 border-t border-gray-100">
+        <div *ngIf="isAuthenticated" class="flex items-center mb-3">
+          <div class="flex-shrink-0">
+            <img class="h-10" src="assets/icons/user.png" alt="">
+          </div>
+
+          <div class="ml-3">
+            <div class="text-base">Abdelaziz</div>
+            <div class="text-xs font-thin">abdelazizmahmoud321@gmail.com</div>
+          </div>
+        </div>
+
+        <div>
+          <a *ngIf="isAuthenticated" href="#" class="text-sm block px-3 py-2 hover:bg-gray-50 bg-gray-50">Update Profile</a>
+          <a *ngIf="isAuthenticated" href="#" class="text-sm block px-3 py-2 hover:bg-gray-50">Update Password</a>
+          <a *ngIf="isAuthenticated" href="#" class="text-sm block px-3 py-2 hover:bg-gray-50">Logout</a>
+
+          <a *ngIf="!isAuthenticated" href="#" class="text-sm block px-3 py-2 hover:bg-gray-50">Regsiter</a>
+          <a *ngIf="!isAuthenticated" href="#" class="text-sm block px-3 py-2 hover:bg-gray-50">Login</a>
+        </div>
+      </div>
+    </div>
+  </nav>  
+</div>
+
+
+
