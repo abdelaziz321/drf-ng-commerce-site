@@ -4,6 +4,7 @@ import { ContactUsComponent } from './modules/global/components/contact-us/conta
 import { NotFoundComponent } from './modules/global/components/not-found/not-found.component';
 import { PageComponent } from './modules/global/components/page/page.component';
 import { UnauthorizedComponent } from './modules/global/components/unauthorized/unauthorized.component';
+import { ProductsModule } from './modules/products/products.module';
 
 const routes: Routes = [
   {
@@ -15,11 +16,6 @@ const routes: Routes = [
     path: 'account',
     loadChildren: () => import('./modules/account/account-routing.module')
       .then(module => module.AccountRoutingModule)
-  },
-  {
-    path: 'products',
-    loadChildren: () => import('./modules/products/products-routing.module')
-      .then(module => module.ProductsRoutingModule)
   },
   {
     path: 'orders',
@@ -50,7 +46,10 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [
+    ProductsModule,
+    RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
