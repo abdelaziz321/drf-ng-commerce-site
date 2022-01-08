@@ -1,12 +1,14 @@
-<div class="my-10 px-4 sm:px-6 lg:px-8">
-  <h3 class="uppercase font-black font-serif text-center text-xl tracking-wide mb-5">
-    categories
-  </h3>
-  <div class="container mx-auto bg-white border px-5 pt-5 pb-2">
+<div class="mt-14 lg:mt-24 px-4 sm:px-6 lg:px-8">
+  <div class="flex justify-center">
+    <h3 class="inline-flex uppercase border-b-4 border-primary font-black font-serif text-center text-xl md:text-3xl tracking-wide mb-7">
+      categories
+    </h3>
+  </div>
+  <div class="container mx-auto bg-white border border-b-0 px-5 pt-5 pb-2">
     <ul class="flex justify-center flex-wrap space-x-4">
       <a
         *ngFor="let category of categories"
-        class="text-primary bg-gray-50 hover:bg-white border border-primary px-3 py-1 mb-3"
+        class="text-gray-800 bg-gray-50 hover:bg-white border border-primary px-3 py-1 mb-3"
         href="#"
       >{{ category.name }}</a>
     </ul>

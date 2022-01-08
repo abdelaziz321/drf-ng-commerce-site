@@ -22,7 +22,8 @@ import { ClickOutsideModule } from 'ng-click-outside';
   ],
   exports: [
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    AngularSvgIconModule
   ]
 })
 export class SharedModule { }

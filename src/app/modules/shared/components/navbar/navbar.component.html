@@ -21,12 +21,12 @@
         <div class="hidden md:block">
           <div *ngIf="isAuthenticated" class="ml-4 flex items-center md:ml-6">
             <button type="button" class="group relative inline-block mt-0 md:mt-1 mr-2 md:mr-8">
-              <svg-icon svgClass="h-7 fill-[#888888] group-hover:fill-[#555555]" src="assets/icons/cart.svg"></svg-icon>
+              <svg-icon svgClass="h-7 fill-current text-gray-400 group-hover:text-gray-700" src="assets/icons/cart.svg"></svg-icon>
               <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">3</span>
             </button>
 
             <button type="button" class="group relative inline-block mt-0 md:mt-1 mr-2 md:mr-7">
-              <svg-icon svgClass="h-7 fill-[#888888] group-hover:fill-[#555555]" src="assets/icons/notification.svg"></svg-icon>
+              <svg-icon svgClass="h-7 fill-current text-gray-400 group-hover:text-gray-700" src="assets/icons/notification.svg"></svg-icon>
               <span class="absolute top-0 right-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 transform translate-x-1/2 -translate-y-1/2 bg-red-500 rounded-full">4</span>
             </button>
 
@@ -74,12 +74,12 @@
           >
             <svg-icon
               *ngIf="!isMobileMenuVisible"
-              svgClass="block h-6 w-6 fill-[#888888]"
+              svgClass="block h-6 w-6 text-gray-500 fill-current"
               src="assets/icons/burger.svg"
             ></svg-icon>
             <svg-icon
               *ngIf="isMobileMenuVisible"
-              svgClass="h-6 w-6 fill-[#888888]"
+              svgClass="h-6 w-6 text-gray-500 fill-current"
               src="assets/icons/close.svg"
             ></svg-icon>
           </button>
