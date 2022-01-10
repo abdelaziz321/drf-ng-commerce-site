@@ -1,1 +1,54 @@
-<p>login works!</p>
+<div class="max-w-lg m-auto px-3 mt-14 lg:mt-24">
+  <div class="shadow-md py-8 px-8" style="background-image: linear-gradient(130deg, #ffffff 50%, #fcfcfc 50%);">
+    <h1 class="font-medium text-2xl mt-3 text-center">Login</h1>
+
+    <form [formGroup]="form" (ngSubmit)="login($event, model)">
+      <formly-form
+        [form]="form"
+        [fields]="fields"
+        [model]="model"
+      ></formly-form>
+
+      <div class="flex justify-between mt-7">
+        <div>
+          <a href="#" class="text-xs font-light text-gray-500 border-b hover:border-gray-600">forgot password?</a>
+        </div>
+
+        <button
+          type="submit"
+          class="self-end text-white bg-primary py-2 px-7"
+        >Login</button>
+      </div>
+    </form>
+
+    <div class="border-b border-gray-200 my-5"></div>
+
+    <div class="flex justify-center mb-4">
+      <p class="inline-flex md:mx-2 text-sm font-light text-gray-400"> Login With Social Accounts</p>
+    </div>
+
+    <ul class="flex justify-center flex-wrap mb-4 space-x-5">
+      <li>
+        <a href="#" class="inline-block opacity-90 hover:opacity-100">
+          <svg-icon svgClass="h-9" src="assets/social-icons/google.svg"></svg-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="inline-block opacity-90 hover:opacity-100">
+          <svg-icon svgClass="h-9" src="assets/social-icons/github.svg"></svg-icon>
+        </a>
+      </li>
+      <li>
+        <a href="#" class="inline-block opacity-90 hover:opacity-100">
+          <svg-icon svgClass="h-9" src="assets/social-icons/facebook.svg"></svg-icon>
+        </a>
+      </li>
+    </ul>
+
+    <p class="text-xs text-center font-light text-gray-400">
+      Don't have an account?
+      <a href="#" class="text-gray-500 border-b hover:border-gray-600">Register</a> Now
+    </p>
+
+  </div>
+</div>

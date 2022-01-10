@@ -28,12 +28,14 @@
     "ng-click-outside": "^9.0.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
-    "zone.js": "~0.11.4"
+    "zone.js": "~0.11.4",
+    "@ngx-formly/core": "^5.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~12.2.14",
     "@angular/cli": "~12.2.14",
     "@angular/compiler-cli": "~12.2.0",
+    "@ngx-formly/schematics": "^5.10.28",
     "@types/jasmine": "~3.8.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.8.0",
