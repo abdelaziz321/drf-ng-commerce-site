@@ -6,7 +6,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularSvgIconModule } from 'angular-svg-icon';
 import { ClickOutsideModule } from 'ng-click-outside';
-
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -17,6 +17,7 @@ import { ClickOutsideModule } from 'ng-click-outside';
   imports: [
     CommonModule,
     HttpClientModule,
+    RouterModule,
     AngularSvgIconModule.forRoot(),
     ClickOutsideModule
   ],

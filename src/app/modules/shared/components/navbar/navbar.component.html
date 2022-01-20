@@ -11,8 +11,8 @@
 
           <div class="hidden md:block">
             <div class="ml-8 flex items-baseline space-x-4">
-              <a href="#" class="pb-1 border-b border-gray-100 hover:border-primary">Products</a>
-              <a *ngIf="isAuthenticated" href="#" class="pb-1 border-b border-gray-100 hover:border-primary">Orders</a>
+              <a routerLink="/products" class="pb-1 border-b border-gray-100 hover:border-primary">Products</a>
+              <a *ngIf="isAuthenticated" routerLink="/orders/cart" class="pb-1 border-b border-gray-100 hover:border-primary">Orders</a>
             </div>
           </div>
         </div>

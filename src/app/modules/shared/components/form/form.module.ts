@@ -65,7 +65,7 @@ import { FormlyModule } from '@ngx-formly/core';
         {
           name: 'email',
           validation: function EmailValidator(control: AbstractControl): ValidationErrors | null {
-            return /^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{r,4}$/.test(control.value) ? {} : { 'email': true };
+            return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(control.value) ? {} : { 'email': true };
           },
         }
       ]

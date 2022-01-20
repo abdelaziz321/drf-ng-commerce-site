@@ -1,11 +1,13 @@
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard } from './modules/auth/services/auth.guard';
+import { AuthGuard, RestrictUnauthorizedRequestsInterceptor, SetAuthorizationHeaderInterceptor } from './modules/auth';
 import { ContactUsComponent } from './modules/global/components/contact-us/contact-us.component';
 import { NotFoundComponent } from './modules/global/components/not-found/not-found.component';
 import { PageComponent } from './modules/global/components/page/page.component';
 import { UnauthorizedComponent } from './modules/global/components/unauthorized/unauthorized.component';
 import { ProductsModule } from './modules/products/products.module';
+
 
 const routes: Routes = [
   {
@@ -52,6 +54,10 @@ const routes: Routes = [
     ProductsModule,
     RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })
   ],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SetAuthorizationHeaderInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: RestrictUnauthorizedRequestsInterceptor, multi: true },
+  ]
 })
 export class AppRoutingModule { }

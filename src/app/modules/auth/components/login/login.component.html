@@ -1,12 +1,19 @@
 <div class="max-w-lg m-auto px-3 mt-14 lg:mt-24">
-  <div class="shadow-md py-8 px-8" style="background-image: linear-gradient(130deg, #ffffff 50%, #fcfcfc 50%);">
+  <div class="shadow-md py-8 px-8 bg-white">
     <h1 class="font-medium text-2xl mt-3 text-center">Login</h1>
 
-    <form [formGroup]="form" (ngSubmit)="login($event, model)">
+    <form [formGroup]="form" (ngSubmit)="login($event, loginRequestDto)">
+      <!-- ALERT -->
+      <div
+        *ngIf="alertMessage"
+        class="p-4 my-4 text-sm text-red-700 bg-red-100 border border-red-400"
+      >{{ alertMessage }}</div>
+      
+      <!-- FORM -->
       <formly-form
         [form]="form"
         [fields]="fields"
-        [model]="model"
+        [model]="loginRequestDto"
       ></formly-form>
 
       <div class="flex justify-between mt-7">
@@ -14,7 +21,16 @@
           <a href="#" class="text-xs font-light text-gray-500 border-b hover:border-gray-600">forgot password?</a>
         </div>
 
+        <!-- LOADER -->
+        <div
+          *ngIf="isFormLoading"
+          style="border-top-color:transparent"
+          class="w-8 h-8 border-4 border-primary rounded-full animate-spin"
+        ></div>
+
+        <!-- SUBMIT BUTTON -->
         <button
+          *ngIf="!isFormLoading"
           type="submit"
           class="self-end text-white bg-primary py-2 px-7"
         >Login</button>
@@ -23,6 +39,8 @@
 
     <div class="border-b border-gray-200 my-5"></div>
 
+
+    <!-- SOCIAL LOGIN -->
     <div class="flex justify-center mb-4">
       <p class="inline-flex md:mx-2 text-sm font-light text-gray-400"> Login With Social Accounts</p>
     </div>
@@ -45,10 +63,10 @@
       </li>
     </ul>
 
+    <!-- REGISTER LINK -->
     <p class="text-xs text-center font-light text-gray-400">
       Don't have an account?
       <a href="#" class="text-gray-500 border-b hover:border-gray-600">Register</a> Now
     </p>
-
   </div>
 </div>

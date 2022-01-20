@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './modules/shared/shared.module';
 import { GlobalModule } from './modules/global/global.module';
 
+
 @NgModule({
   declarations: [
     AppComponent,
