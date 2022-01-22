@@ -1,7 +1,7 @@
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
-import { AuthGuard, RestrictUnauthorizedRequestsInterceptor, SetAuthorizationHeaderInterceptor } from './modules/auth';
+import { IsAuthenticatedGuard, IsGuestGuard, RestrictUnauthorizedRequestsInterceptor, SetAuthorizationHeaderInterceptor } from './modules/auth';
 import { ContactUsComponent } from './modules/global/components/contact-us/contact-us.component';
 import { NotFoundComponent } from './modules/global/components/not-found/not-found.component';
 import { PageComponent } from './modules/global/components/page/page.component';
@@ -13,7 +13,8 @@ const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./modules/auth/auth.module')
-      .then(module => module.AuthModule)
+      .then(module => module.AuthModule),
+    canActivate: [IsGuestGuard]
   },
   {
     path: 'account',
@@ -24,7 +25,7 @@ const routes: Routes = [
     path: 'orders',
     loadChildren: () => import('./modules/orders/orders-routing.module')
       .then(module => module.OrdersRoutingModule),
-    canActivate: [AuthGuard]
+    canActivate: [IsAuthenticatedGuard]
   },
   {
     path: 'pages/:page',
