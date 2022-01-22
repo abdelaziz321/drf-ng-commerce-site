@@ -1,0 +1,21 @@
+<label
+  [class.border-red-500]="showError"
+  class="flex items-center flex-col justify-center border-2 border-dashed py-8 bg-gray-50 hover:border-gray-300 group"
+>
+  <svg-icon
+    svgClass="w-10 h-10 text-gray-400 text-gray-400 group-hover:text-gray-600"
+    src="assets/icons/photo.svg"
+  ></svg-icon>
+
+  <label
+    class='lowercase text-sm text-gray-400 group-hover:text-gray-600 tracking-wider'
+  >Select a photo</label>
+
+  <input
+    [id]="id"
+    [formControl]="formControl"
+    [formlyAttributes]="field"
+    type='file'
+    class="hidden"
+  />
+</label>

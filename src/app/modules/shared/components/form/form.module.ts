@@ -4,16 +4,22 @@ import { FormlyFieldTypeComponent } from './formly-field-type/formly-field-type.
 import { FormlyFieldWrapperComponent } from './formly-field-wrapper/formly-field-wrapper.component';
 import { AbstractControl, ReactiveFormsModule, ValidationErrors } from '@angular/forms';
 import { FormlyModule } from '@ngx-formly/core';
+import { FormlyFileTypeComponent } from './formly-file-type/formly-file-type.component';
+import { SharedModule } from '../../shared.module';
+import { FileValueAccessor } from './formly-file-type/formly-file-value.accessor';
 
 
 @NgModule({
   declarations: [
+    FileValueAccessor,
+    FormlyFileTypeComponent,
     FormlyFieldTypeComponent,
-    FormlyFieldWrapperComponent
+    FormlyFieldWrapperComponent,
   ],
   imports: [
     CommonModule,
     ReactiveFormsModule,
+    SharedModule,
     FormlyModule.forChild({
       // basic inputs
       types: [
@@ -46,6 +52,11 @@ import { FormlyModule } from '@ngx-formly/core';
               type: 'email',
             },
           }
+        },
+        {
+          name: 'file',
+          component: FormlyFileTypeComponent,
+          wrappers: ['wrapper'],
         },
       ],
 
