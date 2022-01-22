@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { AuthUserResponseDto } from '../dto/AuthUserResponse.dto';
 import { LoginRequestDto } from '../dto/LoginRequest.dto';
 import { tap } from 'rxjs/operators';
+import { RegisterRequestDto } from '../dto/RegisterRequest.dto';
 
 @Injectable({
   providedIn: 'root'
@@ -34,7 +35,39 @@ export class AuthService {
   constructor(private http: HttpClient) { }
 
   /**
-   * save ACCESS_TOKEN & REFRESH_TOKEN & currentAccount
+   * register and save ACCESS_TOKEN & REFRESH_TOKEN & currentAccount
+   * 
+   * @param registerRequestDto
+   */
+  public register(registerRequestDto: RegisterRequestDto): Observable<any> {
+    let payload = new FormData;
+
+    for (const key in registerRequestDto) {
+      let value : any = registerRequestDto[key as keyof RegisterRequestDto];
+
+      // use the first file
+      if (value instanceof FileList && value.length > 0) {
+        value = value[0];
+      }
+
+      if (value) payload.append(key, value);
+    }
+
+    return this.http.post<AuthUserResponseDto>(
+      `${environment.baseUrl}/accounts/auth/register`,
+      payload
+    )
+      .pipe(
+        tap((response) => {
+          localStorage.setItem('ACCESS_TOKEN', response.tokens.access);
+          localStorage.setItem('REFRESH_TOKEN', response.tokens.refresh);
+          this.currentAccount = response.user;
+        })
+      );
+  }
+
+  /**
+   * login and save ACCESS_TOKEN & REFRESH_TOKEN & currentAccount
    * 
    * @param loginRequestDto
    */

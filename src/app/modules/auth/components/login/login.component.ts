@@ -9,7 +9,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  styleUrls: []
 })
 export class LoginComponent implements OnInit {
   form : FormGroup = new FormGroup({});
@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
       key: 'email',
       type: 'email',
       templateOptions: {
-        label: 'Email address',
-        placeholder: 'Enter email',
+        label: 'Email',
+        placeholder: 'Enter your email address',
         required: true,
         attributes: {
           autocomplete: 'on',
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       type: 'password',
       templateOptions: {
         label: 'Password',
-        placeholder: 'Enter password',
+        placeholder: 'Enter your password',
         required: true,
       }
     }
